@@ -85,9 +85,23 @@ git push origin main
 
 ```bash
 scoop bucket add <your-bucket-name> <your-bucket-repo-url>
+scoop bucket add sonicoop https://github.com/sonicmingit/sonic-bucket
 ```
 
 替换 `<your-bucket-name>` 为你选择的 bucket 名称，`<your-bucket-repo-url>` 为你的 Git 仓库地址。
+
+查看bucket信息
+
+```
+# 已安装的 bucket
+scoop bucket list
+
+# 列出 bucket 中的所有软件
+scoop search <bucket_name>/
+
+```
+
+
 
 ### 6. 安装和测试
 
