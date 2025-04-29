@@ -11,6 +11,6 @@
         "regex": "v([\\d.]+)"
     },
     "autoupdate": {
-        "url": "https://github.com/luckjiawei/frpc-desktop/releases/download/v$version/Frpc-Desktop-$version.exe",
+        "url": "https://github.com/luckjiawei/frpc-desktop/releases/download/v$version/Frpc-Desktop-$version.exe"
     }
 }
