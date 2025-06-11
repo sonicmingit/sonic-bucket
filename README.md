@@ -1,5 +1,6 @@
 # sonic-bucket
 scoop自用源
+软件库 https://dl.sonicming.top/soft/*
 
 
 # 说明
