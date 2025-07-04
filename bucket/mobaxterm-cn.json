@@ -10,6 +10,9 @@
     }
   },
   "extract_dir": ".",
+  "installer": {
+  "script": "Expand-Archive \"$dir\\MobaXterm_Portable_v24.3_chs.zip\" -DestinationPath $dir"
+  },
   "bin": "MobaXterm_Personal_24.3.exe",
   "shortcuts": [
     [
