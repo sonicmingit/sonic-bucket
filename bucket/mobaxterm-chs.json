@@ -6,7 +6,7 @@
   "architecture": {
     "64bit": {
       "url": "https://github.com/RipplePiam/MobaXterm-Chinese-Simplified/releases/download/v0.24.3.10/MobaXterm_Portable_v24.3_chs.zip",
-      "hash": "md5:skip"
+      "hash": "md5:2216BB8085E2A3B726A9EA8817F6AFEF"
     }
   },
   "extract_dir": ".",
