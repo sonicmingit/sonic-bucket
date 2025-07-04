@@ -26,9 +26,9 @@
     "@('MobaXterm.ini','MobaXterm backup.zip') | ForEach-Object { Sync $_ }"
   ],
 
-  "bin": "MobaXterm_Personal_24.3.exe",
+  "bin": "MobaXterm.exe",
   "shortcuts": [
-    [ "MobaXterm_Personal_24.3.exe", "MobaXterm 中文版" ]
+    [ "MobaXterm.exe", "MobaXterm 中文版" ]
   ],
 
   "persist": [
