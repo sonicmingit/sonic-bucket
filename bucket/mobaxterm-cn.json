@@ -1,19 +1,38 @@
 {
   "version": "24.3-chs",
-  "description": "MobaXterm 简体中文便携版",
+  "description": "MobaXterm 简体中文便携版：集成终端、SSH、SFTP、X11 的强大远程运维工具",
   "homepage": "https://github.com/RipplePiam/MobaXterm-Chinese-Simplified",
   "license": "Freeware",
-  "architecture": {
-    "64bit": {
-      "url": "https://github.com/RipplePiam/MobaXterm-Chinese-Simplified/releases/download/v0.24.3.10/MobaXterm_Portable_v24.3_chs.zip",
-      "hash": "md5:2216bb8085e2a3b726a9ea8817f6afef"
-    }
-  },
-  "extract_dir": ".",
 
-  "bin": "MobaXterm_Personal_24.3.exe",
-  "shortcuts": [
-    [ "MobaXterm_Personal_24.3.exe", "MobaXterm 中文版" ]
+  "url": "https://github.com/RipplePiam/MobaXterm-Chinese-Simplified/releases/download/v0.24.3.10/MobaXterm_Portable_v24.3_chs.zip",
+  "hash": "md5:2216bb8085e2a3b726a9ea8817f6afef",
+
+  "pre_install": [
+    "# 将主程序改成统一名称，便于后续自动更新",
+    "Rename-Item \"$dir\\MobaXterm_Personal_24.3.exe\" 'MobaXterm.exe'",
+    "",
+    "# 若持久化目录没有 ini/备份文件则创建空文件",
+    "function Touch([string] $f) { if (!(Test-Path \"$persist_dir\\$f\")) { New-Item \"$dir\\$f\" -Type File | Out-Null } }",
+    "@('MobaXterm.ini','MobaXterm backup.zip') | ForEach-Object { Touch $_ }"
   ],
-  "persist": "MobaXterm.ini"
+
+  "pre_uninstall": [
+    "# 若运行期修改了 ini / 备份文件，卸载前同步回 persist",
+    "function Sync([string] $f) {",
+    "  if ((Get-Item \"$dir\\$f\").LastWriteTime -gt (Get-Item \"$persist_dir\\$f\").LastWriteTime) {",
+    "    Copy-Item \"$dir\\$f\" \"$persist_dir\\$f\" -Force",
+    "  }",
+    "}",
+    "@('MobaXterm.ini','MobaXterm backup.zip') | ForEach-Object { Sync $_ }"
+  ],
+
+  "bin": "MobaXterm.exe",
+  "shortcuts": [
+    [ "MobaXterm.exe", "MobaXterm 中文版" ]
+  ],
+
+  "persist": [
+    "MobaXterm.ini",
+    "MobaXterm backup.zip"
+  ]
 }
