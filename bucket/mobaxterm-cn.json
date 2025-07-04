@@ -1,6 +1,6 @@
 {
   "version": "24.3-chs",
-  "description": "MobaXterm 简体中文便携版：集成终端、SSH、SFTP、X11 的强大远程运维工具",
+  "description": "MobaXterm 简体中文便携版，集成终端/SSH/SFTP/X11",
   "homepage": "https://github.com/RipplePiam/MobaXterm-Chinese-Simplified",
   "license": "Freeware",
   "architecture": {
@@ -10,7 +10,18 @@
     }
   },
 
-  "extract_dir": ".",
+  /* 让 Scoop 漏过默认 Expand-Archive 的失败，
+     我们自己从缓存解压到 $dir */
+  "installer": {
+    "script": [
+      "# 手动解压，使用 7-Zip（推荐）或 PowerShell",
+      "if (Test-Path \"$env:SCOOP\\apps\\7zip\\current\\7z.exe\") {",
+      "  & \"$env:SCOOP\\apps\\7zip\\current\\7z.exe\" x \"$cachedir\\MobaXterm_Portable_v24.3_chs.zip\" -o\"$dir\" -y",
+      "} else {",
+      "  Expand-Archive \"$cachedir\\MobaXterm_Portable_v24.3_chs.zip\" -DestinationPath \"$dir\" -Force",
+      "}"
+    ]
+  },
 
   "bin": "MobaXterm_Personal_24.3.exe",
   "shortcuts": [
