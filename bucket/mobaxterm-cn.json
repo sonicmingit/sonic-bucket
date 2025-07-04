@@ -10,8 +10,7 @@
     }
   },
 
-  /* 让 Scoop 漏过默认 Expand-Archive 的失败，
-     我们自己从缓存解压到 $dir */
+
   "installer": {
     "script": [
       "# 手动解压，使用 7-Zip（推荐）或 PowerShell",
